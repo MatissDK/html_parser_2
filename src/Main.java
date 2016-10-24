@@ -1,19 +1,16 @@
-import com.jaunt.JauntException;
-import com.jaunt.UserAgent;
+import DbConnection.ConnectionToDb;
+import WebConnection.WebConnection;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static WebConnection webConnection;
 
-        try {
-            UserAgent userAgent = new UserAgent();
-            userAgent.visit("http://tis.ta.gov.lv/court.jm.gov.lv/stat/html/cal_1_201610.html");
-            System.out.println(userAgent.doc.innerHTML());
-        } catch (JauntException e) {
-            System.err.println(e);
-        }
+    public static void main(String[] args) throws Exception{
+       /* webConnection = new WebConnection();
+        webConnection.connnectToSite();*/
 
+        ConnectionToDb connectionToDb =  new ConnectionToDb();
+        connectionToDb.getData();
     }
-
 
 }
